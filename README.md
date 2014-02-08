@@ -1,7 +1,7 @@
-knap-sack
+# Knap Sack Problem
 =========
 
-# WEEK ONE:
+## WEEK ONE:
 ### FIRST 
 
 #### Problem Statment:
