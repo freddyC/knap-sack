@@ -1,0 +1,2 @@
+all: main.cpp Abstract_Solution.cpp Dynamic_Solution.h Memoized_Solution.h Recursive_Solution.cpp Abstract_Solution.h Dynamic_Solution.cpp Memoized_Solution.cpp Recursive_Solution.h 
+	g++ -std=c++11  main.cpp Abstract_Solution.cpp Recursive_Solution.cpp Dynamic_Solution.cpp Memoized_Solution.cpp -g -o knap-sack
