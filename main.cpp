@@ -16,6 +16,7 @@ void test_memoized ();
 void test_cached ();
 void test_memoized_robust (bool isWide);
 void test_cached_robust (bool isWide);
+void test_algorithms_find_same_solution ();
 
 const int BAG_SIZE           = 1000     // Maximum value size of bag
         , MIN_NUM_ITEMS      = 6        // Minimum Number of Items to draw from
@@ -33,11 +34,12 @@ const bool DOUBLE_GROWTH     = false    // Does the number of items double its s
 
 int main(int argc, const char * argv[])
 {
-  test_recursive  ();
-  test_memoized ();
-  test_cached ();
-  test_memoized_robust (IS_WIDE);
-  test_cached_robust (IS_WIDE);
+  // test_recursive  ();
+  // test_memoized ();
+  // test_cached ();
+  // test_memoized_robust (IS_WIDE);
+  // test_cached_robust (IS_WIDE);
+  test_algorithms_find_same_solution();
 
 
   std::cout << "\n\nAll Done Here\n\n";
@@ -126,14 +128,19 @@ void test_cached_robust (bool isWide) {
   std::cout << "CACHED test that is " << wide << " DONE\n\n";
 }
 
+void test_algorithms_find_same_solution () {
+  Recursive_Solution recursive;
+  Memoized_Solution memoized;
+  Dynamic_Solution dynamic;
+  // Liniar_Space_Solution liniar;
 
+  double recursiveRes = recursive.check_results();
+  std::cout << "recursive results = " << recursiveRes << std::endl;
+  double memoizedRes = memoized.check_results();
+  std::cout << "memoized results = " << memoizedRes << std::endl;
+  double dynamicRes = dynamic.check_results();
+  std::cout << "dynamic results = " << dynamicRes << std::endl;
+  // double liniarRes = liniar.check_results();
+  // std::cout << "liniar results = " << liniarRes << std::endl;
+}
 
-
-/*
-  
-*/
-
-/*
-  WEEK TWO:
-
-*/

@@ -32,17 +32,24 @@
 
 double Dynamic_Solution::solve(int item, int currentBagSize, double currentBagValue)
 {
-  for(int i = 1; i < this->numberOfItems; ++i) // from 1 because at 0 objects we are done
-  {
-    for (int j = 0; j < this->originalBagSize; ++j)
-    {
-      if (this->itemSizes[i] <= j)
-      {
+  for(int i = 1; i < this->numberOfItems; ++i) {// from 1 because at 0 objects we are done
+    for (int j = 0; j <= this->originalBagSize; ++j) {
+      if (this->itemSizes[i] <= j) {
         this->bagValues[i][j] = std::max(this->bagValues[i-1][j], this->bagValues[i-1][j - this->itemSizes[i]] + this->itemValues[i]);
+        // std::cout << this->bagValues[i][j] << ",\t";
       } else {
         this->bagValues[i][j] = this->bagValues[i-1][j];
+        // std::cout << this->bagValues[i][j] << ",\t";
       }
     }
+    // std::cout << "\n";
   }
-  return this->bagValues[item][currentBagSize];
+
+  std::for_each(this->bagValues.begin(), this->bagValues.end(), [] (std::vector<double> vec) {
+    std::cout << std::endl;
+    std::for_each(vec.begin(), vec.end(), [] (double val) {
+      std::cout << val << ",\t";
+    });
+  });
+  return this->bagValues[this->numberOfItems - 1][this->originalBagSize];
 }

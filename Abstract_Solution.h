@@ -55,6 +55,7 @@ public:
 
   // Function that actually runs the algorithm tests
   std::vector<double> runForSizes (int minItemCount, int maxItemCount, int timesRun);
+  double check_results (void);
 
   // setters
   void setNumberOfItems    (int numberOfItems)     { this->numberOfItems    = numberOfItems;     }
@@ -76,7 +77,7 @@ protected:
   // helper tag along functions
   int getRandomInt (int small, int big);
   std::vector<int> getVectorOfInts (int size, int min, int max);
-  double getRandomDouble (int small, int big);
+  double getRandomDouble (double small, double big);
   std::vector<double> getVectorOfDoubles (int size, int min, int max);
   template <typename InputIterator>
     double average (InputIterator);
