@@ -1,5 +1,5 @@
 # Knap Sack Problem
-=========
+
 
 ## WEEK ONE:
 ### FIRST 
