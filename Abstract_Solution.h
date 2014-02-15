@@ -41,7 +41,7 @@ runForSizes
 
 class Abstract_Solution {
 public:
-  
+
   // constructors
   Abstract_Solution ()
     : numberOfItems(0)
@@ -55,7 +55,8 @@ public:
 
   // Function that actually runs the algorithm tests
   std::vector<double> runForSizes (int minItemCount, int maxItemCount, int timesRun);
-  double check_results (void);
+  double checkResults (void);
+  std::vector<bool> getUsedItems (); // uses bag values.  Only usefull for dynamic programing solution
 
   // setters
   void setNumberOfItems    (int numberOfItems)     { this->numberOfItems    = numberOfItems;     }
@@ -93,8 +94,8 @@ protected:
   bool isWide;
   std::vector<int> itemSizes;
   std::vector<double> itemValues;
-  std::vector<std::vector<bool>> seen;
-  std::vector<std::vector<double>> bagValues;
+  std::vector<std::vector<bool> > seen;
+  std::vector<std::vector<double> > bagValues;
 };
 
 

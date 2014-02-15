@@ -3,8 +3,8 @@
 //  knap_sack
 //
 //  Created by Fred Christensen on 1/18/14.
-//  Copyright (c) 2014 Fred Christensen. All rights reserved.
 //
+
 #include "Memoized_Solution.h"
 
 double Memoized_Solution::solve(int item, int currentBagSize, double currentBagValue)

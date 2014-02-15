@@ -3,7 +3,6 @@
 //  knap_sack
 //
 //  Created by Fred Christensen on 1/18/14.
-//  Copyright (c) 2014 Fred Christensen. All rights reserved.
 //
 
 #include <iostream>
@@ -134,13 +133,13 @@ void test_algorithms_find_same_solution () {
   Dynamic_Solution dynamic;
   // Liniar_Space_Solution liniar;
 
-  double recursiveRes = recursive.check_results();
+  double recursiveRes = recursive.checkResults();
   std::cout << "recursive results = " << recursiveRes << std::endl;
-  double memoizedRes = memoized.check_results();
+  double memoizedRes = memoized.checkResults();
   std::cout << "memoized results = " << memoizedRes << std::endl;
-  double dynamicRes = dynamic.check_results();
+  double dynamicRes = dynamic.checkResults();
   std::cout << "dynamic results = " << dynamicRes << std::endl;
-  // double liniarRes = liniar.check_results();
+  // double liniarRes = liniar.checkResults();
   // std::cout << "liniar results = " << liniarRes << std::endl;
 }
 

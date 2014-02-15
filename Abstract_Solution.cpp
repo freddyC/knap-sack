@@ -3,7 +3,6 @@
 //  knap_sack
 //
 //  Created by Fred Christensen on 1/18/14.
-//  Copyright (c) 2014 Fred Christensen. All rights reserved.
 //
 
 
@@ -18,17 +17,17 @@ std::vector<double> Abstract_Solution::runForSizes (int minItemCount, int maxIte
   for (int i = minItemCount; i <= maxItemCount; (this->doubleGrowth) ? i *= 2 : ++i) {
     setNumberOfItems(i);
     results[i] = this->solveAverage(timesRun);
-    std::cout << i << " items: " << results[i] << std::endl;
+    std::cout << i << " items took " << results[i] << std::endl;
   }
   return results;
 }
 
-double Abstract_Solution::check_results (void) {
+double Abstract_Solution::checkResults (void) {
   this->numberOfItems = 5;
   this->originalBagSize = 100;
 
   static const int sizes[]     = {0,   25,   50,   30,   20,  25  };
-  static const double values[] = {0.0, 10.0, 20.0, 15.0, 6.0, 11.0};
+  static const double values[] = {0.0, 11.3, 25.3, 22.4, 5.2, 13.4};
 
   std::vector<int> sizes_vec  (sizes, sizes + sizeof(sizes) / sizeof(sizes[0]) );
   std::vector<double> values_vec (values, values + sizeof(values) / sizeof(values[0]) );
@@ -43,6 +42,23 @@ double Abstract_Solution::check_results (void) {
   bagValues.resize( this->numberOfItems + 1, std::vector<double>( this->originalBagSize + 1, 0 ) );
   return this->solve(1, 100, 0);
 }
+
+
+
+std::vector<bool> Abstract_Solution::getUsedItems () {
+  std::vector<bool> itemsUsed(this->numberOfItems +1, false);
+  double curSize = this->originalBagSize;
+
+  for (int curItem = numberOfItems; curItem > 0; --curItem) {
+    if (this->bagValues[curItem][curSize] != this->bagValues[curItem -1][curSize]) {
+      itemsUsed[curItem -1] = true;
+      curSize -= this->itemSizes[curItem];
+    }
+  }
+
+  return itemsUsed;
+}
+
 
 
   // ---------- Average Solve Time ------------
