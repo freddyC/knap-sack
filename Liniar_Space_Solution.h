@@ -15,6 +15,11 @@ class Liniar_Space_Solution : public Abstract_Solution {
   public:
     Liniar_Space_Solution () : Abstract_Solution() {}
     virtual double solve(int item, int currentBagSize, double currentBagValue);
+  private:
+    void knapDC(int lowIndex, int highIndex, int capacity);
+    std::vector<double> solveHalf (int start, int end, int capacity, bool ascending);
+    int argMax (const std::vector<double> &left, const std::vector<double> &right, int capacity);
+    std::vector<bool> itemsUsed;
 };
 
 #endif

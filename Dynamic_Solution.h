@@ -13,11 +13,11 @@
 
 class Dynamic_Solution : public Abstract_Solution {
 public:
+
   Dynamic_Solution() : Abstract_Solution() {}
-  
   virtual double solve(int item, int currentBagSize, double currentBagValue);
-  
-  
+
 };
 
-#endif /* defined(__knap_sack__Dynamic_Solution__) */
+#endif
+/* defined(__knap_sack__Dynamic_Solution__) */

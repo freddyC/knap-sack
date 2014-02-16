@@ -8,8 +8,7 @@
 
 #include "Recursive_Solution.h"
 
-double Recursive_Solution :: solve(int item, int currentBagSize, double currentBagValue)
-{
+double Recursive_Solution::solve(int item, int currentBagSize, double currentBagValue) {
     // Base Cases
   if (item >= this->numberOfItems || item >= this->numberOfItems) return currentBagValue;
   if (currentBagSize <= 0) return currentBagValue;
