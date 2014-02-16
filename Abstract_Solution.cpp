@@ -26,8 +26,8 @@ double Abstract_Solution::checkResults (void) {
   this->numberOfItems = 5;
   this->originalBagSize = 100;
 
-  static const int sizes[]     = {0,   25,   50,   30,   20,  25  };
-  static const double values[] = {0.0, 11.3, 25.3, 22.4, 5.2, 13.4};
+  static const int sizes[]     = {0,   50,   30,   25,   20,  25  };
+  static const double values[] = {0.0, 25.3, 22.4, 11.3, 5.2, 13.4};
 
   std::vector<int> sizes_vec  (sizes, sizes + sizeof(sizes) / sizeof(sizes[0]) );
   std::vector<double> values_vec (values, values + sizeof(values) / sizeof(values[0]) );

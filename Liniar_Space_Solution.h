@@ -13,7 +13,10 @@
 
 class Liniar_Space_Solution : public Abstract_Solution {
   public:
-    Liniar_Space_Solution () : Abstract_Solution() {}
+    Liniar_Space_Solution ()
+      : Abstract_Solution()
+      , itemsUsed()
+    {}
     virtual double solve(int item, int currentBagSize, double currentBagValue);
   private:
     void knapDC(int lowIndex, int highIndex, int capacity);

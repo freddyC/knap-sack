@@ -22,7 +22,7 @@ void test_algorithms_find_same_solution ();
 
 const int BAG_SIZE           = 1000     // Maximum value size of bag
         , MIN_NUM_ITEMS      = 64       // Minimum Number of Items to draw from
-        , MAX_NUM_ITEMS      = 2048     // Maximum Number of Items to draw from
+        , MAX_NUM_ITEMS      = 4096     // Maximum Number of Items to draw from
         , MIN_ITEM_SIZE      = 1        // Minimum Value for an item
         , MAX_ITEM_SIZE      = 1000     // Maximum Value for an item
         , TIMES_TO_RUN       = 30       // How many times a single test is re-run (then averaged)
@@ -40,10 +40,10 @@ int main(int argc, const char * argv[])
   // test_memoized ();
   // test_cached ();
   // test_liniar ();
-  // test_memoized_robust (IS_WIDE);
-  // test_cached_robust (IS_WIDE);
-  // test_liniar_robust (IS_WIDE);
-  test_algorithms_find_same_solution();
+  test_memoized_robust (IS_WIDE);
+  test_cached_robust (IS_WIDE);
+  test_liniar_robust (IS_WIDE);
+  // test_algorithms_find_same_solution();
 
 
   std::cout << "\n\nAll Done Here\n\n";

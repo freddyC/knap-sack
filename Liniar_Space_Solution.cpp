@@ -10,7 +10,9 @@
 #include "Liniar_Space_Solution.h"
 
 double Liniar_Space_Solution::solve(int item, int currentBagSize, double currentBagValue) {
-  this->knapDC(item, currentBagSize, currentBagValue);
+  this->itemsUsed.resize(this->numberOfItems +1, false);
+
+  this->knapDC(item, this->numberOfItems, currentBagSize);
 
   double result = 0;
   for (int i = 0; i <= this->itemsUsed.size(); ++i) {
@@ -23,7 +25,6 @@ double Liniar_Space_Solution::solve(int item, int currentBagSize, double current
 
 // sets the values in kUse
 void Liniar_Space_Solution::knapDC(int lowIndex, int highIndex, int capacity) {
-  std::cout << "In KNAP DC: (" << lowIndex << ", " << highIndex << ", " << capacity << ")\n";
    // single object, use it if it fits (value always > 0)
   if(lowIndex == highIndex) {
     this->itemsUsed[lowIndex] = (this->itemSizes[lowIndex] <= capacity);
@@ -44,32 +45,17 @@ void Liniar_Space_Solution::knapDC(int lowIndex, int highIndex, int capacity) {
 }
 
 std::vector<double> Liniar_Space_Solution::solveHalf (int start, int end, int capacity, bool ascending) {
-  std::vector<double> prevK (capacity, 0.0);
-  std::vector<double> k (capacity, 0.0);
-  int temp = (ascending) ? 1 : -1;
-  std::cout << "In SOLVE HALF (" << start << ", " << end << ", " << capacity << ", " << ascending << ")" << std::endl;
-  for (int i = start; i != end; i += temp) {
-    std::cout << "I = " << i << " J = ";
+  std::vector<double> prevK (capacity +1, 0.0);
+  std::vector<double> k (capacity +1, 0.0);
+  for (int i = start; (ascending) ? i <= end : i >= end; (ascending) ? ++i : --i) {
     for (int j = 0; j <= capacity; ++j) {
-      std::cout << j << " ";
       if (this->itemSizes[i] <= j) {
         k[j] = std::max(prevK[j], prevK[j - this->itemSizes[i]] + this->itemValues[i]);
       } else {
         k[j] = prevK[j];
       }
     }
-    std::cout << std::endl;
     prevK = k;
-  }
-
-  // One last iteration to hit it for the end value
-  for (int j = 0; j <= capacity; ++j) {
-    std::cout << j << " ";
-    if (this->itemSizes[end] <= j) {
-      k[j] = std::max(prevK[j], prevK[j - this->itemSizes[end]] + this->itemValues[end]);
-    } else {
-      k[j] = prevK[j];
-    }
   }
   return k;
 }
