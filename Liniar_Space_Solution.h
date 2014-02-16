@@ -22,7 +22,7 @@ class Liniar_Space_Solution : public Abstract_Solution {
     void knapDC(int lowIndex, int highIndex, int capacity);
     std::vector<double> solveHalf (int start, int end, int capacity, bool ascending);
     int argMax (const std::vector<double> &left, const std::vector<double> &right, int capacity);
-    std::vector<bool> itemsUsed;
+    std::vector<int> itemsUsed;
 };
 
 #endif

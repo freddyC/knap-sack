@@ -20,5 +20,6 @@ double Dynamic_Solution::solve(int item, int currentBagSize, double currentBagVa
     }
   }
 
+  this->getUsedItems();
   return this->bagValues[this->numberOfItems][this->originalBagSize];
 }

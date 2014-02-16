@@ -28,6 +28,7 @@ void Liniar_Space_Solution::knapDC(int lowIndex, int highIndex, int capacity) {
    // single object, use it if it fits (value always > 0)
   if(lowIndex == highIndex) {
     this->itemsUsed[lowIndex] = (this->itemSizes[lowIndex] <= capacity);
+    return;
   } else {
     int midIndex = (lowIndex + highIndex) / 2;
     // linear space, scans from low to mid, returns last column 0 to capacity
